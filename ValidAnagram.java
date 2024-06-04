@@ -37,21 +37,23 @@ public class ValidAnagram {
                 else if (countS.containsKey(s.charAt(i)) && !countT.containsKey(t.charAt(i))) {
                     countS.put(s.charAt(i), 1 + countS.get(s.charAt(i)));
                     countT.put(t.charAt(i), 1);
-                }
+                } // end of else if
 
                 // The current char is not in countS and is in countT
                 else if (!countS.containsKey(s.charAt(i)) && countT.containsKey(t.charAt(i))) {
                     countS.put(s.charAt(i), 1);
                     countT.put(t.charAt(i), 1 + countT.get(t.charAt(i)));
-                }
+                } // end of else if
 
                 // The current char is already in the dictionary of both
                 else {
                     // Iterate the count
                     countS.put(s.charAt(i), 1 + countS.get(s.charAt(i)));
                     countT.put(t.charAt(i), 1 + countT.get(t.charAt(i)));
-                } // end of else if
+                } // end of else
             } // end of for
+
+            // Compare countS and countT using equals and return the result
             return countS.equals(countT);
         } // end of else
     } // end of method
@@ -63,20 +65,3 @@ public class ValidAnagram {
 
     } // end of main
 } // end of class
-
-//if (countS.containsKey(s.charAt(i)) && countT.containsKey(t.charAt(i)))
-
-//            System.out.println(countS.keySet());
-//            System.out.println(countT.keySet());
-//            System.out.println(countS.values());
-//            System.out.println(countT.values());
-//            Set<Character> sChars = countS.keySet();
-//            Set<Character> tChars = countT.keySet();
-//            Collection<Integer> sVals = countS.values();
-//            Collection<Integer> tVals = countT.values();
-//            System.out.println(sChars.equals(tChars));
-//            System.out.println(sVals.containsAll(tVals));
-
-//return countS.keySet().equals(countT.keySet()) && countS.values().containsAll(countT.values());
-//            System.out.println(countS);
-//            System.out.println(countT);
